@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submitBtn');
 
   // Active Google Apps Script Web App URL
-  window.GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdgSWRRk7KAF9u-Fa1WalJ0FbUUtq5hVlt0mNy87BL4Yna_PXpew7HKfysEBwHm2Ps/exec';
+  window.GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCTMeN5yTKHACJmwIw4hckdjiS0xL_TI8dLNB4KmS-3uMIiba4ghzR3z0ovO0d2vIIZg/exec';
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
