@@ -234,11 +234,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (formStatus) {
         formStatus.style.display = 'block';
-        formStatus.style.color = '#F59E0B';
-        formStatus.innerText = '⏳ Sending message directly to Google Sheets...';
+        formStatus.innerHTML = `
+          <div class="form-status-card status-loading animate-fade-in">
+            <div class="spinner-ring"></div>
+            <span>Delivering your message...</span>
+          </div>
+        `;
       }
 
-      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Sending...</span><div class="btn-spinner"></div>`;
+      }
 
       try {
         await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
@@ -249,17 +256,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (formStatus) {
-          formStatus.style.color = '#10B981';
-          formStatus.innerText = '✅ Thank you! Your message has been sent directly to Om Jee Pandey.';
+          formStatus.innerHTML = `
+            <div class="form-status-card status-success animate-pop-in">
+              <div class="status-check">✓</div>
+              <div class="status-info">
+                <strong>Message Sent Successfully!</strong>
+                <p>Thank you for getting in touch. Om Jee Pandey will get back to you shortly.</p>
+              </div>
+            </div>
+          `;
         }
         contactForm.reset();
       } catch (err) {
         if (formStatus) {
-          formStatus.style.color = '#EF4444';
-          formStatus.innerText = '❌ Something went wrong. Please try again or email directly.';
+          formStatus.innerHTML = `
+            <div class="form-status-card status-error animate-pop-in">
+              <div class="status-check error-check">✕</div>
+              <div class="status-info">
+                <strong>Unable to send message</strong>
+                <p>Please try again or email directly at <a href="mailto:omjeepandey112@gmail.com">omjeepandey112@gmail.com</a>.</p>
+              </div>
+            </div>
+          `;
         }
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span>Send Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          `;
+        }
       }
     });
   }
