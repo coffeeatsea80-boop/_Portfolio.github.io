@@ -260,8 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="form-status-card status-success animate-pop-in">
               <div class="status-check">✓</div>
               <div class="status-info">
-                <strong>Message Sent Successfully!</strong>
-                <p>Thank you for getting in touch. Om Jee Pandey will get back to you shortly.</p>
+                <strong>Message Delivered to Om Jee Pandey! ✨</strong>
+                <p>Thank you for your consideration! Om will review your note personally and get back to you very soon. Looking forward to connecting!</p>
               </div>
             </div>
           `;
