@@ -212,25 +212,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Active Google Apps Script Web App URL
-  window.GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznkeILow11fpn2mCwFwLCxmeOlxmoMVvC-BcE_QuKTaxd4CA9uLHlrl8TydUMluVsa/exec';
-
+  // Contact Form — Hidden iFrame POST to Google Sheets (no CORS issues)
   const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('submitBtn');
+  const formStatus  = document.getElementById('formStatus');
+  const submitBtn   = document.getElementById('submitBtn');
+  const dateField   = document.getElementById('dateField');
+  const hiddenFrame = document.getElementById('hidden_iframe');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    contactForm.addEventListener('submit', (e) => {
+      // Set current date into hidden field before submit
+      if (dateField) dateField.value = new Date().toLocaleString();
 
-      const formData = {
-        name: document.getElementById('name')?.value || '',
-        email: document.getElementById('email')?.value || '',
-        subject: document.getElementById('subject')?.value || '',
-        message: document.getElementById('message')?.value || '',
-        date: new Date().toLocaleString()
-      };
-
+      // Show loading spinner
       if (formStatus) {
         formStatus.style.display = 'block';
         formStatus.innerHTML = `
@@ -246,14 +240,8 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = `<span>Sending...</span><div class="btn-spinner"></div>`;
       }
 
-      try {
-        await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(formData)
-        });
-
+      // Wait 2.5s for iframe POST to complete, then show success
+      setTimeout(() => {
         if (formStatus) {
           formStatus.innerHTML = `
             <div class="form-status-card status-success animate-pop-in">
@@ -266,19 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         }
         contactForm.reset();
-      } catch (err) {
-        if (formStatus) {
-          formStatus.innerHTML = `
-            <div class="form-status-card status-error animate-pop-in">
-              <div class="status-check error-check">✕</div>
-              <div class="status-info">
-                <strong>Unable to send message</strong>
-                <p>Please try again or email directly at <a href="mailto:omjeepandey112@gmail.com">omjeepandey112@gmail.com</a>.</p>
-              </div>
-            </div>
-          `;
-        }
-      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = `
@@ -286,7 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           `;
         }
-      }
+      }, 2500);
+
+      // Let the form submit naturally to the hidden iframe (no e.preventDefault())
     });
   }
 

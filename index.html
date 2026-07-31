@@ -721,27 +721,33 @@
         <h2 class="section-title text-center">Let's Connect</h2>
         <p class="section-subtitle text-center">Open for full-time HR, Talent Acquisition & People Operations roles</p>
         <div class="contact-wrapper">
-          
+          <!-- Hidden iframe to capture Google Apps Script response without page redirect -->
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
           <div class="contact-form-col animate-slide-in-bl glass-card">
             <h3 class="form-title">Send Me a Message</h3>
-            <form id="contactForm" class="contact-form">
+            <form id="contactForm" class="contact-form"
+              action="https://script.google.com/macros/s/AKfycbznkeILow11fpn2mCwFwLCxmeOlxmoMVvC-BcE_QuKTaxd4CA9uLHlrl8TydUMluVsa/exec"
+              method="POST"
+              target="hidden_iframe">
+              <input type="hidden" id="dateField" name="date">
               <div class="form-group">
-                <input type="text" id="name" name="Name" required placeholder=" ">
+                <input type="text" id="name" name="name" required placeholder=" ">
                 <label for="name">Full Name</label>
                 <div class="underline"></div>
               </div>
               <div class="form-group">
-                <input type="email" id="email" name="Email" required placeholder=" ">
+                <input type="email" id="email" name="email" required placeholder=" ">
                 <label for="email">Email Address</label>
                 <div class="underline"></div>
               </div>
               <div class="form-group">
-                <input type="text" id="subject" name="Subject" required placeholder=" ">
+                <input type="text" id="subject" name="subject" required placeholder=" ">
                 <label for="subject">Subject</label>
                 <div class="underline"></div>
               </div>
               <div class="form-group">
-                <textarea id="message" name="Message" rows="4" required placeholder=" "></textarea>
+                <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
                 <label for="message">Message</label>
                 <div class="underline"></div>
               </div>
