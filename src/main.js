@@ -248,11 +248,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
+        const bodyParams = new URLSearchParams();
+        bodyParams.append('date', formData.date);
+        bodyParams.append('name', formData.name);
+        bodyParams.append('email', formData.email);
+        bodyParams.append('subject', formData.subject);
+        bodyParams.append('message', formData.message);
+
         await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(formData)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: bodyParams.toString()
         });
 
         if (formStatus) {
