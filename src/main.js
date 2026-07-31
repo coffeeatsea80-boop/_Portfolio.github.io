@@ -212,6 +212,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Google Sheets Contact Form Handler
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Replace GOOGLE_SHEETS_SCRIPT_URL with your Google Apps Script Web App URL
+  window.GOOGLE_SHEETS_SCRIPT_URL = window.GOOGLE_SHEETS_SCRIPT_URL || '';
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name')?.value || '',
+        email: document.getElementById('email')?.value || '',
+        subject: document.getElementById('subject')?.value || '',
+        message: document.getElementById('message')?.value || '',
+        date: new Date().toLocaleString()
+      };
+
+      if (formStatus) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#F59E0B';
+        formStatus.innerText = '⏳ Sending message...';
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        if (window.GOOGLE_SHEETS_SCRIPT_URL) {
+          await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+        }
+
+        if (formStatus) {
+          formStatus.style.color = '#10B981';
+          formStatus.innerText = '✅ Thank you! Your message has been sent directly to Om Jee Pandey.';
+        }
+        contactForm.reset();
+      } catch (err) {
+        if (formStatus) {
+          formStatus.style.color = '#EF4444';
+          formStatus.innerText = '❌ Something went wrong. Please try again or email directly.';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+
 });
 
 // Smooth scrolling for navigation links
