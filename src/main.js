@@ -217,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const formStatus = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
 
-  // Replace GOOGLE_SHEETS_SCRIPT_URL with your Google Apps Script Web App URL
-  window.GOOGLE_SHEETS_SCRIPT_URL = window.GOOGLE_SHEETS_SCRIPT_URL || '';
+  // Active Google Apps Script Web App URL
+  window.GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdgSWRRk7KAF9u-Fa1WalJ0FbUUtq5hVlt0mNy87BL4Yna_PXpew7HKfysEBwHm2Ps/exec';
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -235,20 +235,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (formStatus) {
         formStatus.style.display = 'block';
         formStatus.style.color = '#F59E0B';
-        formStatus.innerText = '⏳ Sending message...';
+        formStatus.innerText = '⏳ Sending message directly to Google Sheets...';
       }
 
       if (submitBtn) submitBtn.disabled = true;
 
       try {
-        if (window.GOOGLE_SHEETS_SCRIPT_URL) {
-          await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          });
-        }
+        await fetch(window.GOOGLE_SHEETS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(formData)
+        });
 
         if (formStatus) {
           formStatus.style.color = '#10B981';
@@ -258,6 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         if (formStatus) {
           formStatus.style.color = '#EF4444';
+          formStatus.innerText = '❌ Something went wrong. Please try again or email directly.';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
           formStatus.innerText = '❌ Something went wrong. Please try again or email directly.';
         }
       } finally {
