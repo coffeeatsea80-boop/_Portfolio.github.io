@@ -263,13 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-          formStatus.innerText = '❌ Something went wrong. Please try again or email directly.';
-        }
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
 
 });
 
