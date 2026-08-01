@@ -135,9 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   certCards.forEach(card => {
     card.addEventListener('click', () => {
-      const fullImgSrc = card.getAttribute('data-full-img');
+      let fullImgSrc = card.getAttribute('data-full-img');
       const title = card.querySelector('h4')?.innerText || 'Certificate Credential';
       if (modal && modalImg && fullImgSrc) {
+        if (fullImgSrc.startsWith('/')) {
+          fullImgSrc = '.' + fullImgSrc;
+        }
         modalImg.src = fullImgSrc;
         if (modalCaption) modalCaption.innerText = title;
         modal.style.display = 'flex';
