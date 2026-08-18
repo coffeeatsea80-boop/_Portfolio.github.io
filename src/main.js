@@ -282,3 +282,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Security Protection Layer: Prevent text copying, right-click, image dragging & developer inspection
+document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+document.addEventListener('dragstart', (e) => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
+
+document.addEventListener('copy', (e) => {
+  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+  if (!isInputField) e.preventDefault();
+});
+
+document.addEventListener('cut', (e) => {
+  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+  if (!isInputField) e.preventDefault();
+});
+
+document.addEventListener('keydown', (e) => {
+  const key = e.key.toLowerCase();
+  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+
+  // Disable F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+    return;
+  }
+
+  // Disable Ctrl+U / Cmd+U (View Source), Ctrl+S / Cmd+S (Save Page)
+  if ((e.ctrlKey || e.metaKey) && (key === 'u' || key === 's')) {
+    e.preventDefault();
+    return;
+  }
+
+  // Disable Ctrl+C / Cmd+C, Ctrl+X / Cmd+X outside input fields
+  if ((e.ctrlKey || e.metaKey) && (key === 'c' || key === 'x') && !isInputField) {
+    e.preventDefault();
+    return;
+  }
+
+  // Disable Developer Tools shortcuts: Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (key === 'i' || key === 'j' || key === 'c')) {
+    e.preventDefault();
+    return;
+  }
+});
