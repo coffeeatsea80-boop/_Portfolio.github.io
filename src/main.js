@@ -283,12 +283,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Security Protection Layer: Prevent text copying, right-click, image dragging & developer inspection
-document.addEventListener('contextmenu', (e) => e.preventDefault());
+// Security Protection Layer: Prevent text copying, right-click, mobile long-press, image dragging & developer inspection
+window.addEventListener('contextmenu', (e) => {
+  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+  if (!isInputField) e.preventDefault();
+}, true);
 
 document.addEventListener('dragstart', (e) => {
   if (e.target.tagName === 'IMG') e.preventDefault();
-});
+}, true);
 
 document.addEventListener('copy', (e) => {
   const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
