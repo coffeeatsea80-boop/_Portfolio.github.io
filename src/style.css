@@ -195,6 +195,7 @@ ul { list-style: none; }
 
 .section-title.text-center { display: block; text-align: center; }
 .section-title.text-center::after { left: 50%; transform: translateX(-50%); width: 90px; }
+#about .section-title::after { display: none; }
 
 .section-subtitle {
   text-align: center;
