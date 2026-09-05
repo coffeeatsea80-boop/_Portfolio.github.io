@@ -163,12 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. SCROLL PROGRESS BAR
   // =========================================================================
   const progressBar = document.getElementById('scroll-progress');
-  window.addEventListener('scroll', () => {
+  const mainHeader = document.getElementById('mainHeader');
+
+  function updateHeaderOnScroll() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     if (progressBar) progressBar.style.width = scrollPct + '%';
-  });
+
+    if (mainHeader) {
+      if (scrollTop > 25) {
+        mainHeader.classList.add('scrolled');
+      } else {
+        mainHeader.classList.remove('scrolled');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+  updateHeaderOnScroll();
 
   // Observe section elements for scroll reveals
   const observeElements = [
