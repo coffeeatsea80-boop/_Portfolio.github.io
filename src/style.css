@@ -89,6 +89,116 @@ ul {
 }
 
 /* ==========================================================================
+   EXECUTIVE CURTAIN PRELOADER (CINEMATIC OPENING)
+   ========================================================================== */
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #05070B;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transition: transform 0.85s cubic-bezier(0.8, 0, 0.1, 1), opacity 0.85s ease;
+  will-change: transform;
+}
+
+.preloader-overlay.curtain-lift {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.preloader-content {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.preloader-mono {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--amber-gold);
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.preloader-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.preloader-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  margin: 0.4rem 0;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--amber-gold), var(--gold-bright));
+  transition: width 0.08s linear;
+}
+
+.preloader-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.preloader-status {
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.preloader-count {
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   AMBIENT INTERACTIVE CURSOR SPOTLIGHT (DESKTOP ILLUMINATION)
+   ========================================================================== */
+.cursor-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.045), rgba(16, 185, 129, 0.02), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@media (pointer: coarse) {
+  .cursor-spotlight {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
    SCROLL PROGRESS BAR
    ========================================================================== */
 #scroll-progress {
@@ -681,8 +791,25 @@ ul {
   position: relative;
 }
 
+.ledger-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--amber-gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s var(--ease-out);
+}
+
 .ledger-row:hover {
   background: var(--bg-hover);
+}
+
+.ledger-row:hover::before {
+  transform: scaleY(1);
 }
 
 .ledger-meta {
@@ -975,11 +1102,29 @@ ul {
   padding: 3.2rem 1.5rem;
   border-top: var(--border-hairline);
   transition: var(--transition-smooth);
+  position: relative;
+}
+
+.console-pillar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--amber-gold), var(--emerald));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s var(--ease-out);
 }
 
 .console-pillar:hover {
   background: var(--bg-hover);
   border-top-color: var(--gold-border);
+}
+
+.console-pillar:hover::before {
+  transform: scaleY(1);
 }
 
 .pillar-meta {
