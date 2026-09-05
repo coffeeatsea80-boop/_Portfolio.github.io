@@ -822,8 +822,17 @@ ul {
   margin-bottom: 0.3rem;
 }
 
-.company-tag {
+.brand-logo-svg {
   display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+
+.company-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
@@ -1082,6 +1091,216 @@ ul {
 }
 
 /* ==========================================================================
+   INTERACTIVE ACOUSTIC SPEECH AI WAVEFORM CONSOLE (PROJECT VAANI)
+   ========================================================================== */
+.vaani-audio-console {
+  margin-top: 2.4rem;
+  background: rgba(11, 14, 23, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.vaani-audio-console::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber-gold), var(--emerald), transparent);
+}
+
+.console-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.console-audio-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-audio-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--amber-gold);
+  color: #07090E;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-audio-play:hover {
+  background: #E5C368;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+.btn-audio-play:active {
+  transform: translateY(0);
+}
+
+.btn-audio-play.active {
+  background: var(--emerald);
+  color: #07090E;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.play-icon {
+  font-size: 0.85rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.console-meta-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.audio-mono-chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: var(--border-hairline);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+.dialect-chip {
+  color: var(--amber-gold);
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+.audio-timer {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.4);
+  border: var(--border-hairline);
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Dynamic Waveform Visualizer */
+.vaani-waveform {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 64px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--border-hairline);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.waveform-bar {
+  flex: 1;
+  min-width: 3px;
+  height: var(--h, 30%);
+  background: linear-gradient(180deg, var(--amber-gold), rgba(212, 175, 55, 0.35));
+  border-radius: 2px 2px 0 0;
+  opacity: 0.45;
+  transition: height 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+}
+
+.vaani-waveform.playing .waveform-bar {
+  opacity: 0.95;
+  animation: wavePulse 1.2s ease-in-out infinite alternate;
+}
+
+/* Stagger animation delays for natural acoustic waveform oscillation */
+.vaani-waveform.playing .waveform-bar:nth-child(2n) {
+  animation-duration: 0.85s;
+  animation-delay: 0.1s;
+}
+.vaani-waveform.playing .waveform-bar:nth-child(3n) {
+  animation-duration: 1.1s;
+  animation-delay: 0.25s;
+}
+.vaani-waveform.playing .waveform-bar:nth-child(4n) {
+  animation-duration: 0.7s;
+  animation-delay: 0.15s;
+}
+.vaani-waveform.playing .waveform-bar:nth-child(5n) {
+  animation-duration: 1.3s;
+  animation-delay: 0.3s;
+}
+
+@keyframes wavePulse {
+  0% {
+    height: 18%;
+    background: linear-gradient(180deg, var(--amber-gold), rgba(212, 175, 55, 0.4));
+  }
+  50% {
+    height: 98%;
+    background: linear-gradient(180deg, #FDFBF7, var(--amber-gold));
+  }
+  100% {
+    height: 35%;
+    background: linear-gradient(180deg, var(--emerald), rgba(16, 185, 129, 0.4));
+  }
+}
+
+/* Telemetry Grid */
+.console-telemetry-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: var(--border-divider);
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.telemetry-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.val-green {
+  color: var(--emerald);
+}
+
+/* ==========================================================================
    PAGE 6: COMPETENCY CONSOLE (BESPOKE CAPABILITY LEDGER)
    ========================================================================== */
 .skills-console-section {
@@ -1179,13 +1398,16 @@ ul {
 }
 
 .proof-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--gold-bright);
   background: var(--gold-subtle);
   border: 1px solid var(--gold-border);
-  padding: 2px 8px;
-  border-radius: 2px;
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
 .pillar-chips {
@@ -1313,6 +1535,9 @@ ul {
 }
 
 .cert-info h4 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
@@ -1873,5 +2098,25 @@ ul {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .vaani-audio-console {
+    padding: 1.25rem 1rem;
+  }
+
+  .console-control-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btn-audio-play {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .console-telemetry-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 }

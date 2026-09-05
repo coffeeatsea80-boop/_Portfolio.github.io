@@ -356,6 +356,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // =========================================================================
+  // 9. INTERACTIVE ACOUSTIC WAVEFORM CONSOLE (PROJECT VAANI)
+  // =========================================================================
+  const vaaniAudioToggle = document.getElementById('vaaniAudioToggle');
+  const vaaniWaveform    = document.getElementById('vaaniWaveform');
+  const playIcon         = document.getElementById('playIcon');
+  const playText         = document.getElementById('playText');
+  const audioCurrentTime = document.getElementById('audioCurrentTime');
+
+  if (vaaniAudioToggle && vaaniWaveform) {
+    let isPlaying = false;
+    let playbackSeconds = 0;
+    let playbackInterval = null;
+    const totalDuration = 14;
+
+    function formatSeconds(sec) {
+      const mins = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `0${mins}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function stopPlayback() {
+      isPlaying = false;
+      vaaniWaveform.classList.remove('playing');
+      vaaniAudioToggle.classList.remove('active');
+      if (playIcon) playIcon.textContent = '▶';
+      if (playText) playText.textContent = 'Inspect Acoustic Validation Stream';
+      if (playbackInterval) {
+        clearInterval(playbackInterval);
+        playbackInterval = null;
+      }
+    }
+
+    vaaniAudioToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        stopPlayback();
+      } else {
+        isPlaying = true;
+        vaaniWaveform.classList.add('playing');
+        vaaniAudioToggle.classList.add('active');
+        if (playIcon) playIcon.textContent = '❚❚';
+        if (playText) playText.textContent = 'Streaming Bhojpuri-Magahi Acoustic Sample';
+
+        if (playbackSeconds >= totalDuration) {
+          playbackSeconds = 0;
+          if (audioCurrentTime) audioCurrentTime.textContent = '00:00';
+        }
+
+        playbackInterval = setInterval(() => {
+          playbackSeconds++;
+          if (audioCurrentTime) {
+            audioCurrentTime.textContent = formatSeconds(playbackSeconds);
+          }
+          if (playbackSeconds >= totalDuration) {
+            stopPlayback();
+          }
+        }, 1000);
+      }
+    });
+  }
+
 });
 
 // Smooth scrolling for navigation links
