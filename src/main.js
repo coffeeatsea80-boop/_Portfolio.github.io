@@ -18,50 +18,6 @@ const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate');
-
-      // Skills progress bar & percentage count-up
-      if (entry.target.classList.contains('animate-skill-card')) {
-        const progressBars = entry.target.querySelectorAll('.progress-bar');
-        const percentages = entry.target.querySelectorAll('.skill-pct');
-
-        progressBars.forEach((bar, index) => {
-          const target = parseInt(bar.getAttribute('data-target'), 10);
-          setTimeout(() => {
-            bar.style.width = target + '%';
-            let current = 0;
-            const increment = target / 40;
-            const counter = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                percentages[index].innerText = target + '%';
-                clearInterval(counter);
-              } else {
-                percentages[index].innerText = Math.round(current) + '%';
-              }
-            }, 25);
-          }, 200);
-        });
-      }
-
-      // Stats Count-up animation
-      if (entry.target.classList.contains('stats-counter')) {
-        const statNums = entry.target.querySelectorAll('.stat-num');
-        statNums.forEach(stat => {
-          const target = parseInt(stat.getAttribute('data-val'), 10);
-          let current = 0;
-          const step = Math.max(1, Math.floor(target / 30));
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              stat.innerText = target;
-              clearInterval(timer);
-            } else {
-              stat.innerText = current;
-            }
-          }, 40);
-        });
-      }
-
       observer.unobserve(entry.target);
     }
   });
@@ -90,14 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressBar) progressBar.style.width = scrollPct + '%';
   });
 
-
-
-  // Observe section elements
+  // Observe section elements for scroll reveals
   const observeElements = [
-    '.about-image-wrapper', '.summary-text', '.flip-card',
-    '.animate-exp-card', '.animate-drop-in', '.animate-rise-up',
-    '.animate-project', '.animate-skill-card', '.animate-cascade',
-    '.animate-zoom-in', '.stats-counter', '.animate-slide-in-bl', '.animate-slide-in-br'
+    '.editorial-section-header', '.about-narrative-col', '.about-spec-col',
+    '.career-ledger', '.edu-entry', '.project-dossier',
+    '.competency-console', '.animate-cascade', '.metrics-row', '.honor-roll',
+    '.contact-form-col', '.contact-info-col'
   ];
 
   observeElements.forEach(selector => {
@@ -156,10 +110,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Interactive 3D Mouse Parallax & Tilt Animation for Hero Profile Photo
+  // Close modal on outside click
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Close modal on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Subtle interactive hover on hero portrait frame
   const portraitContainer = document.querySelector('.hero-portrait-container');
   const heroFrame = document.querySelector('.hero-img-frame');
-  const halo = document.querySelector('.portrait-halo');
 
   if (portraitContainer && heroFrame) {
     portraitContainer.addEventListener('mousemove', (e) => {
@@ -170,66 +137,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -18;
-      const rotateY = ((x - centerX) / centerX) * 18;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
 
-      heroFrame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.06, 1.06, 1.06)`;
-      heroFrame.style.transition = 'transform 0.08s cubic-bezier(0.2, 0, 0.2, 1)';
-
-      if (halo) {
-        halo.style.transform = `translate(${rotateY * 1.5}px, ${-rotateX * 1.5}px) scale(1.18)`;
-        halo.style.transition = 'transform 0.12s ease-out';
-      }
+      heroFrame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      heroFrame.style.transition = 'transform 0.1s ease-out';
     });
 
     portraitContainer.addEventListener('mouseleave', () => {
-      heroFrame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      heroFrame.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-      if (halo) {
-        halo.style.transform = 'translate(0px, 0px) scale(1)';
-        halo.style.transition = 'transform 0.6s ease-out';
-      }
+      heroFrame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      heroFrame.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
     });
   }
-
-  // Interactive 3D Magnetic Mouse Parallax & Tilt for ALL Buttons
-  const interactiveButtons = document.querySelectorAll('.btn, .nav-contact-btn, .filter-btn, .social-chip');
-
-  interactiveButtons.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 12;
-
-      btn.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.06, 1.06, 1.06)`;
-      btn.style.transition = 'transform 0.08s ease-out';
-    });
-
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
-  });
 
   // Contact Form — Hidden iFrame POST to Google Sheets (no CORS issues)
   const contactForm = document.getElementById('contactForm');
   const formStatus  = document.getElementById('formStatus');
   const submitBtn   = document.getElementById('submitBtn');
   const dateField   = document.getElementById('dateField');
-  const hiddenFrame = document.getElementById('hidden_iframe');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      // Set current date into hidden field before submit
+    contactForm.addEventListener('submit', () => {
       if (dateField) dateField.value = new Date().toLocaleString();
 
-      // Show loading spinner
       if (formStatus) {
         formStatus.style.display = 'block';
         formStatus.innerHTML = `
@@ -245,15 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = `<span>Sending...</span><div class="btn-spinner"></div>`;
       }
 
-      // Wait 2.5s for iframe POST to complete, then show success
       setTimeout(() => {
         if (formStatus) {
           formStatus.innerHTML = `
             <div class="form-status-card status-success animate-pop-in">
               <div class="status-check">✓</div>
               <div class="status-info">
-                <strong>Message Delivered to Om Jee Pandey! ✨</strong>
-                <p>Thank you for your consideration! Om will review your note personally and get back to you very soon. Looking forward to connecting!</p>
+                <strong>Message Successfully Sent</strong>
+                <p>Thank you for reaching out. Om Jee will review your note personally and respond promptly.</p>
               </div>
             </div>
           `;
@@ -267,13 +196,12 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         }
       }, 2500);
-
-      // Let the form submit naturally to the hidden iframe (no e.preventDefault())
     });
   }
 
   // Mobile Navigation Drawer Toggle
   const navToggleBtn = document.getElementById('navToggleBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
   const mobileNavLinks = document.querySelectorAll('#mobileNavDrawer a');
 
   if (navToggleBtn && mobileNavDrawer) {
