@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-CvR-r8Sz.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-4RwKS4Oj.css">
+    <script type="module" crossorigin src="./assets/index-CpqVKcN5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CCe8eX9P.css">
   </head>
   <body>
     <!-- Top Scroll Progress Indicator -->
@@ -454,148 +454,115 @@
       </div>
     </section>
 
-    <!-- Page 6 - Skills -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title text-center">Core Competencies & Skills</h2>
-        <div class="skills-grid">
+    <!-- Page 6 - Skills: Curved Capability Roadmap -->
+    <section id="skills" class="section skills-roadmap-section">
+      <div class="container skills-roadmap-container">
+        
+        <!-- Section Header -->
+        <div class="skills-roadmap-header animate-fade-up">
+          <div class="skills-eyebrow">
+            <span class="pulse-dot"></span> EXECUTIVE TOOLKIT
+          </div>
+          <h2 class="skills-headline">
+            Capabilities that turn people strategy<br class="hidden-mobile"> into organizational impact.
+          </h2>
+          <p class="skills-intro">
+            A focused operational toolkit spanning end-to-end talent acquisition, luxury retail operations, high-precision AI data validation, and Harvard faculty-trained leadership.
+          </p>
+        </div>
+
+        <!-- SVG Curved Connector Path (Desktop) -->
+        <svg class="skills-curve-svg" viewBox="0 0 1000 1500" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="roadmapGlowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F59E0B" />
+              <stop offset="50%" stop-color="#10B981" />
+              <stop offset="100%" stop-color="#FCD34D" />
+            </linearGradient>
+          </defs>
+          <!-- Base Guide Path -->
+          <path class="roadmap-path-base" d="M 650,180 C 420,290 190,360 290,570 C 390,760 750,720 690,940 C 640,1140 430,1200 340,1330" />
+          <!-- Animated Active Path -->
+          <path id="roadmapActivePath" class="roadmap-path-active" d="M 650,180 C 420,290 190,360 290,570 C 390,760 750,720 690,940 C 640,1140 430,1200 340,1330" />
+        </svg>
+
+        <!-- Mobile Center Dashed Connector Track -->
+        <div class="skills-mobile-track" aria-hidden="true"></div>
+
+        <!-- Staggered Roadmap Nodes -->
+        <div class="skills-nodes-wrapper">
           
-          <div class="skill-category glass-card animate-skill-card">
-            <h3>
-              <span class="cat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </span>
-              HR & People Operations
-            </h3>
-            <ul class="competency-list">
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Talent Acquisition & Sourcing</strong>
-                  <p class="competency-desc">End-to-end recruitment lifecycle, candidate screening, scheduling & pipeline management.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Employee Onboarding</strong>
-                  <p class="competency-desc">Structured new-hire orientation, documentation collation & cultural assimilation protocols.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Employee Engagement & Culture</strong>
-                  <p class="competency-desc">Designing morale initiatives, sentiment pulse checks, team building sessions & retention activities.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">HR Operations & Policy</strong>
-                  <p class="competency-desc">Regulatory compliance, attendance tracking, documentation integrity & HR record maintenance.</p>
-                </div>
-              </li>
-            </ul>
+          <!-- Node 01 -->
+          <div class="roadmap-node node-1 animate-node-right">
+            <div class="node-header">
+              <span class="node-num">01</span>
+              <div class="node-badge">Core HR</div>
+            </div>
+            <h3 class="node-title">HR Operations & Talent Acquisition</h3>
+            <p class="node-desc">End-to-end recruitment lifecycle, candidate screening, structured onboarding protocols, and employee relations.</p>
+            <div class="node-tags">
+              <span class="node-tag">Talent Acquisition</span>
+              <span class="node-tag">Candidate Sourcing</span>
+              <span class="node-tag">Onboarding Protocols</span>
+              <span class="node-tag">Employee Engagement</span>
+              <span class="node-tag">HR Policy & Compliance</span>
+              <span class="node-tag">Employee Relations</span>
+            </div>
           </div>
 
-          <div class="skill-category glass-card animate-skill-card">
-            <h3>
-              <span class="cat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </span>
-              Business & Domain Knowledge
-            </h3>
-            <ul class="competency-list">
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">BFSI Sector Fundamentals</strong>
-                  <p class="competency-desc">Solid grounding in banking systems, financial services, life & general insurance frameworks.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Retail & Sales Operations</strong>
-                  <p class="competency-desc">Frontline luxury retail client advisory, CRM synchronization, and floor management at CaratLane.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Bancassurance Distribution</strong>
-                  <p class="competency-desc">Bank-insurance integration channels, partner compliance, and customer product positioning.</p>
-                </div>
-              </li>
-            </ul>
+          <!-- Node 02 -->
+          <div class="roadmap-node node-2 animate-node-left">
+            <div class="node-header">
+              <span class="node-num">02</span>
+              <div class="node-badge">Business</div>
+            </div>
+            <h3 class="node-title">Business & Domain Knowledge</h3>
+            <p class="node-desc">Solid grounding in banking systems, financial services, life & general insurance frameworks, and luxury retail operations.</p>
+            <div class="node-tags">
+              <span class="node-tag">BFSI Foundations</span>
+              <span class="node-tag">Retail Operations (CaratLane - TATA)</span>
+              <span class="node-tag">Bancassurance Distribution</span>
+              <span class="node-tag">CRM & Client Advisory</span>
+              <span class="node-tag">Floor Coordination</span>
+            </div>
           </div>
 
-          <div class="skill-category glass-card animate-skill-card">
-            <h3>
-              <span class="cat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </span>
-              Analytical & Technical Skills
-            </h3>
-            <ul class="competency-list">
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">HR Analytics & Data Collation</strong>
-                  <p class="competency-desc">Spreadsheet modeling, attrition metrics, headcount reporting & recruiting analytics.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Data Quality & Validation</strong>
-                  <p class="competency-desc">High-precision linguistic annotation, audio QA, and prompt accuracy for Google Project VAANI.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Technology Risk Simulation</strong>
-                  <p class="competency-desc">Enterprise control assessments, governance frameworks & IT risk modeling (EY Virtual Experience).</p>
-                </div>
-              </li>
-            </ul>
+          <!-- Node 03 -->
+          <div class="roadmap-node node-3 animate-node-right">
+            <div class="node-header">
+              <span class="node-num">03</span>
+              <div class="node-badge">Analytical</div>
+            </div>
+            <h3 class="node-title">Analytical & Technical Skills</h3>
+            <p class="node-desc">Data collation, spreadsheet modeling, high-precision AI validation, and enterprise technology risk simulation.</p>
+            <div class="node-tags">
+              <span class="node-tag">HR Analytics</span>
+              <span class="node-tag">Spreadsheet Modeling</span>
+              <span class="node-tag">Data Quality & QA (Google VAANI)</span>
+              <span class="node-tag">Technology Risk Simulation (EY)</span>
+              <span class="node-tag">Headcount Metrics</span>
+            </div>
           </div>
 
-          <div class="skill-category glass-card animate-skill-card">
-            <h3>
-              <span class="cat-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-              </span>
-              Leadership & Professional
-            </h3>
-            <ul class="competency-list">
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Executive Leadership Development</strong>
-                  <p class="competency-desc">Rigorous cohort-based leadership & ethical governance training via Harvard faculty-led Aspire Institute.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Cross-Functional Collaboration</strong>
-                  <p class="competency-desc">Effective coordination with operations, business development, and academic faculty across projects.</p>
-                </div>
-              </li>
-              <li class="competency-item">
-                <span class="competency-bullet"></span>
-                <div>
-                  <strong class="competency-name">Critical Problem Solving</strong>
-                  <p class="competency-desc">Analytical root-cause resolution, agile conflict handling, and adaptability in high-demand environments.</p>
-                </div>
-              </li>
-            </ul>
+          <!-- Node 04 -->
+          <div class="roadmap-node node-4 animate-node-left">
+            <div class="node-header">
+              <span class="node-num">04</span>
+              <div class="node-badge">Leadership</div>
+            </div>
+            <h3 class="node-title">Executive Leadership & Governance</h3>
+            <p class="node-desc">Rigorous cohort-based leadership development, ethical governance, and cross-functional team coordination.</p>
+            <div class="node-tags">
+              <span class="node-tag">Aspire Leaders Program (Harvard Faculty-Led)</span>
+              <span class="node-tag">McKinsey Forward Program</span>
+              <span class="node-tag">Cross-Functional Collaboration</span>
+              <span class="node-tag">Ethical Governance</span>
+              <span class="node-tag">Critical Problem Solving</span>
+            </div>
           </div>
 
         </div>
+
       </div>
     </section>
 
