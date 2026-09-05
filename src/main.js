@@ -10,8 +10,8 @@ window.addEventListener('beforeunload', () => {
 // Intersection Observer for scroll-triggered entrance animations
 const observerOptions = {
   root: null,
-  rootMargin: '0px',
-  threshold: 0.12
+  rootMargin: '0px 0px -50px 0px',
+  threshold: 0.08
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observeElements = [
     '.editorial-section-header', '.about-narrative-col', '.about-spec-col',
     '.career-ledger', '.ledger-row', '.edu-entry', '.project-dossier',
-    '.competency-console', '.console-pillar', '.animate-cascade', '.metrics-row', '.honor-roll',
+    '.competency-console', '.console-pillar', '.animate-cascade', '.cert-card', '.metrics-row', '.honor-roll',
     '.contact-form-col', '.contact-info-col'
   ];
 

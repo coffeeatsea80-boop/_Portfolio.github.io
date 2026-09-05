@@ -213,6 +213,180 @@ ul {
 }
 
 /* ==========================================================================
+   SCROLL-DRIVEN ENTRANCE & MOTION SUITE (ENGAGING & LUXURY 60FPS)
+   ========================================================================== */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-down {
+  opacity: 0;
+  transform: translateY(-22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-down.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered Row & Card Cascade */
+.ledger-row,
+.edu-entry,
+.console-pillar,
+.honor-item,
+.animate-cascade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.ledger-row.animate,
+.edu-entry.animate,
+.console-pillar.animate,
+.honor-item.animate,
+.animate-cascade.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Header Animated Micro Indicator */
+.editorial-section-header {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-section-header.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Narrative & Spec columns smooth slide */
+.about-narrative-col,
+.about-spec-col,
+.project-dossier,
+.metrics-row,
+.contact-form-col,
+.contact-info-col {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-narrative-col.animate,
+.about-spec-col.animate,
+.project-dossier.animate,
+.metrics-row.animate,
+.contact-form-col.animate,
+.contact-info-col.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle staggered delays for grid items */
+.cert-grid .cert-card:nth-child(2) { transition-delay: 0.08s; }
+.cert-grid .cert-card:nth-child(3) { transition-delay: 0.16s; }
+.cert-grid .cert-card:nth-child(4) { transition-delay: 0.24s; }
+.cert-grid .cert-card:nth-child(5) { transition-delay: 0.32s; }
+.cert-grid .cert-card:nth-child(6) { transition-delay: 0.40s; }
+
+.competency-console .console-pillar:nth-child(2) { transition-delay: 0.1s; }
+.competency-console .console-pillar:nth-child(3) { transition-delay: 0.2s; }
+.competency-console .console-pillar:nth-child(4) { transition-delay: 0.3s; }
+
+.career-ledger .ledger-row:nth-child(2) { transition-delay: 0.1s; }
+.career-ledger .ledger-row:nth-child(3) { transition-delay: 0.2s; }
+.career-ledger .ledger-row:nth-child(4) { transition-delay: 0.3s; }
+
+.edu-track .edu-entry:nth-child(2) { transition-delay: 0.1s; }
+.edu-track .edu-entry:nth-child(3) { transition-delay: 0.2s; }
+
+/* Interactive Hover Lift & Glow on Cards & Chips */
+.cert-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+.chip-item {
+  transition: all 0.22s ease;
+}
+
+.chip-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.4);
+  color: #FFFFFF;
+}
+
+.social-chip {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-chip:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle Shimmer on Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 20%, var(--amber-gold) 70%, var(--gold-bright) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmerText 8s ease-in-out infinite alternate;
+}
+
+@keyframes shimmerText {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ==========================================================================
    CONTAINERS & STRUCTURAL CANVASES
    ========================================================================== */
 .container {
