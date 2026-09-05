@@ -1041,222 +1041,158 @@ ul { list-style: none; }
 }
 
 /* ==========================================================================
-   PAGE 6 - SKILLS: CURVED ROADMAP & BLUEPRINT ARCHITECTURE
+   PAGE 6 - EXECUTIVE COMPETENCY CONSOLE (ORIGINAL BESPOKE ARCHITECTURE)
    ========================================================================== */
-.skills-roadmap-section {
+.skills-console-section {
   position: relative;
-  background-color: #0b0d13;
-  background-image: 
-    radial-gradient(circle at 80% 25%, rgba(245, 158, 11, 0.08), transparent 45%),
-    radial-gradient(circle at 15% 75%, rgba(16, 185, 129, 0.06), transparent 45%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: auto, auto, 80px 80px, 80px 80px;
-  padding: 110px 0 130px;
+  background: var(--bg-deep);
+  padding: 95px 0 105px;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.skills-roadmap-container {
-  position: relative;
-  min-height: 1540px;
+.skills-console-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
 }
 
-.skills-roadmap-header {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  max-width: 540px;
-  z-index: 10;
-}
-
-.skills-eyebrow {
+.console-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   color: var(--amber-gold);
   margin-bottom: 1.2rem;
-  padding: 6px 14px;
+  padding: 5px 14px;
   border-radius: 999px;
   background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.22);
 }
 
-.skills-headline {
-  font-family: var(--font-heading);
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text-main);
-  margin-bottom: 1.3rem;
-  letter-spacing: -0.8px;
-}
-
-.skills-intro {
-  color: var(--text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  max-width: 480px;
-}
-
-/* SVG Curved Connector Path (Desktop) */
-.skills-curve-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1540px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.roadmap-path-base {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.12);
-  stroke-width: 2px;
-  stroke-dasharray: 8 10;
-}
-
-.roadmap-path-active {
-  fill: none;
-  stroke: url(#roadmapGlowGradient);
-  stroke-width: 3.5px;
-  stroke-dasharray: 8 10;
-  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
-  transition: stroke-dashoffset 0.12s ease-out;
-}
-
-.skills-mobile-track {
-  display: none;
-}
-
-/* Staggered Roadmap Nodes */
-.skills-nodes-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.roadmap-node {
-  background: rgba(13, 17, 26, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(16px);
-  border-radius: 20px;
-  padding: 2.2rem;
-  width: 490px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 5;
-  cursor: default;
-}
-
-.roadmap-node:hover {
-  transform: translateY(-6px) scale(1.015) !important;
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 20px 45px rgba(245, 158, 11, 0.18), 0 0 20px rgba(245, 158, 11, 0.08);
-}
-
-.roadmap-node.node-1 {
-  position: absolute;
-  top: 30px;
-  right: 1%;
-  transform: rotate(2deg);
-}
-
-.roadmap-node.node-2 {
-  position: absolute;
-  top: 410px;
-  left: 2%;
-  transform: rotate(-2deg);
-}
-
-.roadmap-node.node-3 {
-  position: absolute;
-  top: 790px;
-  right: 1%;
-  transform: rotate(2.2deg);
-}
-
-.roadmap-node.node-4 {
-  position: absolute;
-  top: 1180px;
-  left: 2%;
-  transform: rotate(-1.8deg);
-}
-
-.node-header {
+/* Console Container */
+.competency-console {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Individual Strategic Pillar */
+.console-pillar {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
   align-items: center;
-  margin-bottom: 1.1rem;
+  padding: 3.2rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  position: relative;
 }
 
-.node-num {
+.console-pillar:hover {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.03), rgba(16, 185, 129, 0.02));
+  border-top-color: rgba(245, 158, 11, 0.35);
+}
+
+.pillar-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.pillar-index {
   font-family: var(--font-heading);
-  font-size: 2.6rem;
-  font-weight: 900;
-  color: var(--gold-light);
-  letter-spacing: -1.5px;
-  line-height: 1;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--amber-gold);
+  letter-spacing: -0.5px;
+  opacity: 0.85;
+  line-height: 1.1;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.node-badge {
+.pillar-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.pillar-summary {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+
+.pillar-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.proof-label {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
 }
 
-.node-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.3px;
-  line-height: 1.3;
+.proof-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--emerald-light);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
-.node-desc {
-  color: var(--text-secondary);
-  font-size: 0.94rem;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-}
-
-.node-tags {
+/* Right Column: Interactive Chips */
+.pillar-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.65rem;
+  align-content: center;
 }
 
-.node-tag {
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.04);
+.chip-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  color: var(--text-secondary);
-  transition: all 0.25s ease;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
 }
 
-.node-tag:hover {
-  background: rgba(245, 158, 11, 0.15);
+.chip-item:hover {
+  background: rgba(245, 158, 11, 0.12);
   border-color: var(--amber-gold);
   color: var(--gold-light);
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.18);
 }
+
 
 /* ==========================================================================
    PAGE 7 - CERTIFICATIONS & MODAL LIGHTBOX
@@ -1794,48 +1730,30 @@ ul { list-style: none; }
   .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
   .mission-vision-cards { flex-direction: column; gap: 1.4rem; }
 
-  /* Skills Roadmap Mobile/Tablet Optimization */
-  .skills-roadmap-container {
-    min-height: auto;
-    padding: 0 0.8rem;
+  /* Skills Console Responsive */
+  .skills-console-header {
+    margin-bottom: 2.5rem;
   }
-  .skills-roadmap-header {
-    position: static;
-    max-width: 100%;
-    margin-bottom: 3rem;
-    text-align: left;
+  .console-pillar {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 2.4rem 0.5rem;
   }
-  .skills-headline {
-    font-size: 2.1rem;
+  .pillar-meta {
+    gap: 1.1rem;
   }
-  .skills-curve-svg {
-    display: none;
+  .pillar-index {
+    font-size: 1.5rem;
   }
-  .skills-mobile-track {
-    display: block;
-    position: absolute;
-    top: 240px;
-    bottom: 50px;
-    left: 20px;
-    width: 2px;
-    border-left: 2px dashed rgba(245, 158, 11, 0.35);
-    z-index: 1;
+  .pillar-title {
+    font-size: 1.25rem;
   }
-  .skills-nodes-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-left: 22px;
+  .pillar-chips {
+    gap: 0.5rem;
   }
-  .roadmap-node {
-    position: static !important;
-    width: 100% !important;
-    transform: none !important;
-    border-radius: 16px;
-    padding: 1.6rem;
-  }
-  .roadmap-node:hover {
-    transform: none !important;
+  .chip-item {
+    font-size: 0.82rem;
+    padding: 7px 13px;
   }
 }
 
