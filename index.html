@@ -34,7 +34,22 @@
           <a href="#certifications">Certifications</a>
           <a href="#contact" class="nav-contact-btn">Contact Me</a>
         </div>
+        <button id="navToggleBtn" class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobileNavDrawer" class="mobile-nav-drawer">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact" class="mobile-nav-contact">Contact Me</a>
+      </div>
     </header>
 
     <!-- Page 1 - Clean Executive Hero Section -->
@@ -68,6 +83,10 @@
               <span>View Experience</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-resume cta-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Download CV</span>
+            </a>
             <a href="#contact" class="btn btn-secondary cta-btn">Let's Connect</a>
           </div>
 
@@ -99,10 +118,10 @@
       <div class="container hero-stats-container">
         <div class="hero-stats-bar glass-card animate-fade-up">
           <div class="stat-pill">
-            <span class="pill-number">1+</span>
+            <span class="pill-number">4</span>
             <div class="pill-meta">
-              <strong>Years Experience</strong>
-              <span>TATA • Google • ADM</span>
+              <strong>Brand Internships</strong>
+              <span>TATA • Google • ADM • iLearnings</span>
             </div>
           </div>
           <div class="stat-divider"></div>
@@ -447,26 +466,36 @@
               </span>
               HR & People Operations
             </h3>
-            <div class="skill-item">
-              <div class="skill-header"><span>Talent Acquisition</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="85"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Onboarding</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="82"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Employee Engagement</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="80"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Employee Relations</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="80"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>HR Operations & Policy</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="75"></div></div>
-            </div>
+            <ul class="competency-list">
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Talent Acquisition & Sourcing</strong>
+                  <p class="competency-desc">End-to-end recruitment lifecycle, candidate screening, scheduling & pipeline management.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Employee Onboarding</strong>
+                  <p class="competency-desc">Structured new-hire orientation, documentation collation & cultural assimilation protocols.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Employee Engagement & Culture</strong>
+                  <p class="competency-desc">Designing morale initiatives, sentiment pulse checks, team building sessions & retention activities.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">HR Operations & Policy</strong>
+                  <p class="competency-desc">Regulatory compliance, attendance tracking, documentation integrity & HR record maintenance.</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <div class="skill-category glass-card animate-skill-card">
@@ -476,18 +505,29 @@
               </span>
               Business & Domain Knowledge
             </h3>
-            <div class="skill-item">
-              <div class="skill-header"><span>BFSI (Banking, Financial Services & Insurance)</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Retail Operations & Sales Coordination</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Bancassurance Fundamentals</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="80"></div></div>
-            </div>
+            <ul class="competency-list">
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">BFSI Sector Fundamentals</strong>
+                  <p class="competency-desc">Solid grounding in banking systems, financial services, life & general insurance frameworks.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Retail & Sales Operations</strong>
+                  <p class="competency-desc">Frontline luxury retail client advisory, CRM synchronization, and floor management at CaratLane.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Bancassurance Distribution</strong>
+                  <p class="competency-desc">Bank-insurance integration channels, partner compliance, and customer product positioning.</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <div class="skill-category glass-card animate-skill-card">
@@ -497,18 +537,29 @@
               </span>
               Analytical & Technical Skills
             </h3>
-            <div class="skill-item">
-              <div class="skill-header"><span>Data Analysis</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="75"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Data Quality & Validation</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Technology Risk Simulation (EY)</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="75"></div></div>
-            </div>
+            <ul class="competency-list">
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">HR Analytics & Data Collation</strong>
+                  <p class="competency-desc">Spreadsheet modeling, attrition metrics, headcount reporting & recruiting analytics.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Data Quality & Validation</strong>
+                  <p class="competency-desc">High-precision linguistic annotation, audio QA, and prompt accuracy for Google Project VAANI.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Technology Risk Simulation</strong>
+                  <p class="competency-desc">Enterprise control assessments, governance frameworks & IT risk modeling (EY Virtual Experience).</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <div class="skill-category glass-card animate-skill-card">
@@ -516,24 +567,31 @@
               <span class="cat-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
               </span>
-              Leadership & Soft Skills
+              Leadership & Professional
             </h3>
-            <div class="skill-item">
-              <div class="skill-header"><span>Communication & Emotional Intelligence</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="88"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Teamwork & Collaboration</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="85"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Leadership (Aspire Fellows)</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="82"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Problem-Solving</span><span class="skill-pct">0%</span></div>
-              <div class="progress-bg"><div class="progress-bar" data-target="80"></div></div>
-            </div>
+            <ul class="competency-list">
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Executive Leadership Development</strong>
+                  <p class="competency-desc">Rigorous cohort-based leadership & ethical governance training via Harvard faculty-led Aspire Institute.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Cross-Functional Collaboration</strong>
+                  <p class="competency-desc">Effective coordination with operations, business development, and academic faculty across projects.</p>
+                </div>
+              </li>
+              <li class="competency-item">
+                <span class="competency-bullet"></span>
+                <div>
+                  <strong class="competency-name">Critical Problem Solving</strong>
+                  <p class="competency-desc">Analytical root-cause resolution, agile conflict handling, and adaptability in high-demand environments.</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -559,7 +617,7 @@
           
           <div class="cert-card glass-card animate-cascade" data-category="leadership" data-full-img="./certificates/aspire_leaders_program_2025.png">
             <div class="cert-img-container">
-              <img src="./certificates/aspire_leaders_program_2025.png" alt="2025 Aspire Leaders Program Certificate">
+              <img src="./certificates/aspire_leaders_program_2025.png" alt="2025 Aspire Leaders Program Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -570,7 +628,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="analytics" data-full-img="./certificates/ey_technology_risk_simulation.png">
             <div class="cert-img-container">
-              <img src="./certificates/ey_technology_risk_simulation.png" alt="EY Technology Risk Virtual Job Simulation Certificate">
+              <img src="./certificates/ey_technology_risk_simulation.png" alt="EY Technology Risk Virtual Job Simulation Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -581,7 +639,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="analytics" data-full-img="./certificates/deloitte_data_analytics.png">
             <div class="cert-img-container">
-              <img src="./certificates/deloitte_data_analytics.png" alt="Deloitte Data Analytics Job Simulation Certificate">
+              <img src="./certificates/deloitte_data_analytics.png" alt="Deloitte Data Analytics Job Simulation Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -592,7 +650,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="hr" data-full-img="./certificates/bajaj_finserv_hr_workshop.png">
             <div class="cert-img-container">
-              <img src="./certificates/bajaj_finserv_hr_workshop.png" alt="Bajaj Finserv HR Workshop Certificate">
+              <img src="./certificates/bajaj_finserv_hr_workshop.png" alt="Bajaj Finserv HR Workshop Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -603,7 +661,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="hr" data-full-img="./certificates/bajaj_finserv_beyond.png">
             <div class="cert-img-container">
-              <img src="./certificates/bajaj_finserv_beyond.png" alt="Bajaj Finserv BEYOND Certificate of Participation">
+              <img src="./certificates/bajaj_finserv_beyond.png" alt="Bajaj Finserv BEYOND Certificate of Participation" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -614,7 +672,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="hr" data-full-img="./certificates/caratlane_s4u_internship.png">
             <div class="cert-img-container">
-              <img src="./certificates/caratlane_s4u_internship.png" alt="CaratLane - A TATA Product Sales Internship Certificate">
+              <img src="./certificates/caratlane_s4u_internship.png" alt="CaratLane - A TATA Product Sales Internship Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -625,7 +683,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="hr" data-full-img="./certificates/adm_hr_internship.png">
             <div class="cert-img-container">
-              <img src="./certificates/adm_hr_internship.png" alt="ADM Education & Welfare Society - HR Internship Certificate">
+              <img src="./certificates/adm_hr_internship.png" alt="ADM Education & Welfare Society - HR Internship Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -636,7 +694,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="hr" data-full-img="./certificates/ilearnings_hr_internship.png">
             <div class="cert-img-container">
-              <img src="./certificates/ilearnings_hr_internship.png" alt="iLearnings - HR Internship Certificate">
+              <img src="./certificates/ilearnings_hr_internship.png" alt="iLearnings - HR Internship Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -647,7 +705,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="analytics" data-full-img="./certificates/project_vaani_internship.png">
             <div class="cert-img-container">
-              <img src="./certificates/project_vaani_internship.png" alt="Project VAANI - Internship Certificate">
+              <img src="./certificates/project_vaani_internship.png" alt="Project VAANI - Internship Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -658,7 +716,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="finance" data-full-img="./certificates/nism_financial_literacy_quiz.png">
             <div class="cert-img-container">
-              <img src="./certificates/nism_financial_literacy_quiz.png" alt="NISM National Financial Literacy Quiz 2025 Certificate">
+              <img src="./certificates/nism_financial_literacy_quiz.png" alt="NISM National Financial Literacy Quiz 2025 Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -669,7 +727,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="finance" data-full-img="./certificates/manzil_bancassurance.png">
             <div class="cert-img-container">
-              <img src="./certificates/manzil_bancassurance.png" alt="Manzil - Fundamentals of Bancassurance Certificate">
+              <img src="./certificates/manzil_bancassurance.png" alt="Manzil - Fundamentals of Bancassurance Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -680,7 +738,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="finance" data-full-img="./certificates/knowlens_leap_year_insurance.png">
             <div class="cert-img-container">
-              <img src="./certificates/knowlens_leap_year_insurance.png" alt="The Leap Year - Insurance Selling Certificate">
+              <img src="./certificates/knowlens_leap_year_insurance.png" alt="The Leap Year - Insurance Selling Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -691,7 +749,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="finance" data-full-img="./certificates/knowlens_salesman.png">
             <div class="cert-img-container">
-              <img src="./certificates/knowlens_salesman.png" alt="KnowLens - Selling Skills Course Certificate">
+              <img src="./certificates/knowlens_salesman.png" alt="KnowLens - Selling Skills Course Certificate" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -702,7 +760,7 @@
 
           <div class="cert-card glass-card animate-cascade" data-category="leadership" data-full-img="./certificates/mckinsey_forward_program.png">
             <div class="cert-img-container">
-              <img src="./certificates/mckinsey_forward_program.png" alt="McKinsey.org Forward Program">
+              <img src="./certificates/mckinsey_forward_program.png" alt="McKinsey.org Forward Program" loading="lazy" decoding="async">
               <div class="zoom-overlay"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> View Credential</span></div>
             </div>
             <div class="cert-info">
@@ -722,8 +780,8 @@
         
         <div class="stats-counter glass-card">
           <div class="stat-item">
-            <span class="stat-num" data-val="1">0</span><span class="stat-plus">+</span>
-            <span class="stat-label">Years Experience</span>
+            <span class="stat-num" data-val="4">0</span>
+            <span class="stat-label">Brand Internships</span>
           </div>
           <div class="stat-item">
             <span class="stat-num" data-val="14">0</span><span class="stat-plus">+</span>

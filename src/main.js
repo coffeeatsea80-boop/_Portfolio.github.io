@@ -270,6 +270,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile Navigation Drawer Toggle
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const mobileNavLinks = document.querySelectorAll('#mobileNavDrawer a');
+
+  if (navToggleBtn && mobileNavDrawer) {
+    navToggleBtn.addEventListener('click', () => {
+      const isOpen = mobileNavDrawer.classList.toggle('active');
+      navToggleBtn.classList.toggle('active', isOpen);
+      navToggleBtn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavDrawer.classList.remove('active');
+        navToggleBtn.classList.remove('active');
+        navToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
 });
 
 // Smooth scrolling for navigation links
@@ -283,51 +305,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Security Protection Layer: Prevent text copying, right-click, mobile long-press, image dragging & developer inspection
-window.addEventListener('contextmenu', (e) => {
-  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
-  if (!isInputField) e.preventDefault();
-}, true);
-
+// Prevent accidental image ghost dragging
 document.addEventListener('dragstart', (e) => {
   if (e.target.tagName === 'IMG') e.preventDefault();
 }, true);
-
-document.addEventListener('copy', (e) => {
-  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
-  if (!isInputField) e.preventDefault();
-});
-
-document.addEventListener('cut', (e) => {
-  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
-  if (!isInputField) e.preventDefault();
-});
-
-document.addEventListener('keydown', (e) => {
-  const key = e.key.toLowerCase();
-  const isInputField = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
-
-  // Disable F12
-  if (e.key === 'F12') {
-    e.preventDefault();
-    return;
-  }
-
-  // Disable Ctrl+U / Cmd+U (View Source), Ctrl+S / Cmd+S (Save Page)
-  if ((e.ctrlKey || e.metaKey) && (key === 'u' || key === 's')) {
-    e.preventDefault();
-    return;
-  }
-
-  // Disable Ctrl+C / Cmd+C, Ctrl+X / Cmd+X outside input fields
-  if ((e.ctrlKey || e.metaKey) && (key === 'c' || key === 'x') && !isInputField) {
-    e.preventDefault();
-    return;
-  }
-
-  // Disable Developer Tools shortcuts: Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (key === 'i' || key === 'j' || key === 'c')) {
-    e.preventDefault();
-    return;
-  }
-});
