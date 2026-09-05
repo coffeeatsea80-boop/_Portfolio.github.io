@@ -1041,86 +1041,221 @@ ul { list-style: none; }
 }
 
 /* ==========================================================================
-   PAGE 6 - SKILLS MATRIX
+   PAGE 6 - SKILLS: CURVED ROADMAP & BLUEPRINT ARCHITECTURE
    ========================================================================== */
-.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem; }
-.skill-category { 
-  padding: 2.2rem 1.5rem 2.2rem 0; 
-  opacity: 0; 
-  transform: scale(0.92); 
-  border-radius: 0 !important;
-  border: none !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-.skill-category.animate { animation: scaleInFade 0.6s forwards; }
-.skill-category:hover {
-  border-top-color: var(--amber-gold) !important;
-  box-shadow: none !important;
-  transform: none !important;
-  background: transparent !important;
+.skills-roadmap-section {
+  position: relative;
+  background-color: #0b0d13;
+  background-image: 
+    radial-gradient(circle at 80% 25%, rgba(245, 158, 11, 0.08), transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(16, 185, 129, 0.06), transparent 45%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 80px 80px, 80px 80px;
+  padding: 110px 0 130px;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.skill-category h3 {
-  font-family: var(--font-heading);
-  color: var(--text-main);
-  margin-bottom: 1.6rem;
-  display: flex;
+.skills-roadmap-container {
+  position: relative;
+  min-height: 1540px;
+}
+
+.skills-roadmap-header {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  max-width: 540px;
+  z-index: 10;
+}
+
+.skills-eyebrow {
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 1.2rem;
-  letter-spacing: -0.2px;
-}
-
-.competency-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.competency-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 6px;
-  transition: var(--transition-fast);
-}
-
-.competency-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(245, 158, 11, 0.3);
-  transform: translateX(4px);
-}
-
-.competency-bullet {
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
   color: var(--amber-gold);
-  font-size: 0.8rem;
-  margin-top: 2px;
-  flex-shrink: 0;
+  margin-bottom: 1.2rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
-.competency-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.competency-name {
+.skills-headline {
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.15;
   color: var(--text-main);
-  letter-spacing: -0.2px;
+  margin-bottom: 1.3rem;
+  letter-spacing: -0.8px;
 }
 
-.competency-desc {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-  line-height: 1.4;
+.skills-intro {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* SVG Curved Connector Path (Desktop) */
+.skills-curve-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1540px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.roadmap-path-base {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 2px;
+  stroke-dasharray: 8 10;
+}
+
+.roadmap-path-active {
+  fill: none;
+  stroke: url(#roadmapGlowGradient);
+  stroke-width: 3.5px;
+  stroke-dasharray: 8 10;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
+  transition: stroke-dashoffset 0.12s ease-out;
+}
+
+.skills-mobile-track {
+  display: none;
+}
+
+/* Staggered Roadmap Nodes */
+.skills-nodes-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.roadmap-node {
+  background: rgba(13, 17, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 2.2rem;
+  width: 490px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+  cursor: default;
+}
+
+.roadmap-node:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 20px 45px rgba(245, 158, 11, 0.18), 0 0 20px rgba(245, 158, 11, 0.08);
+}
+
+.roadmap-node.node-1 {
+  position: absolute;
+  top: 30px;
+  right: 1%;
+  transform: rotate(2deg);
+}
+
+.roadmap-node.node-2 {
+  position: absolute;
+  top: 410px;
+  left: 2%;
+  transform: rotate(-2deg);
+}
+
+.roadmap-node.node-3 {
+  position: absolute;
+  top: 790px;
+  right: 1%;
+  transform: rotate(2.2deg);
+}
+
+.roadmap-node.node-4 {
+  position: absolute;
+  top: 1180px;
+  left: 2%;
+  transform: rotate(-1.8deg);
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+
+.node-num {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+.node-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+
+.node-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.node-desc {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.node-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.node-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--text-secondary);
+  transition: all 0.25s ease;
+}
+
+.node-tag:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--amber-gold);
+  color: var(--gold-light);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -1654,11 +1789,54 @@ ul { list-style: none; }
   .hero-tags { justify-content: center; }
   .hero-actions { justify-content: center; }
   .hero-socials { justify-content: center; }
-  .badge-trust { margin: 0 auto 1.4rem; text-align: center; }
-  .edu-grid, .skills-grid, .achieve-grid, .about-story-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .edu-grid, .achieve-grid, .about-story-grid { grid-template-columns: 1fr; gap: 1.4rem; }
   .project-grid-editorial { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
   .mission-vision-cards { flex-direction: column; gap: 1.4rem; }
+
+  /* Skills Roadmap Mobile/Tablet Optimization */
+  .skills-roadmap-container {
+    min-height: auto;
+    padding: 0 0.8rem;
+  }
+  .skills-roadmap-header {
+    position: static;
+    max-width: 100%;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  .skills-headline {
+    font-size: 2.1rem;
+  }
+  .skills-curve-svg {
+    display: none;
+  }
+  .skills-mobile-track {
+    display: block;
+    position: absolute;
+    top: 240px;
+    bottom: 50px;
+    left: 20px;
+    width: 2px;
+    border-left: 2px dashed rgba(245, 158, 11, 0.35);
+    z-index: 1;
+  }
+  .skills-nodes-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 22px;
+  }
+  .roadmap-node {
+    position: static !important;
+    width: 100% !important;
+    transform: none !important;
+    border-radius: 16px;
+    padding: 1.6rem;
+  }
+  .roadmap-node:hover {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 768px) {

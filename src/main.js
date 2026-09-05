@@ -90,6 +90,37 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressBar) progressBar.style.width = scrollPct + '%';
   });
 
+  // Interactive Roadmap SVG Path Animation on Scroll
+  const roadmapActivePath = document.getElementById('roadmapActivePath');
+  const skillsSection = document.getElementById('skills');
+
+  if (roadmapActivePath && skillsSection) {
+    try {
+      const pathLength = roadmapActivePath.getTotalLength();
+      roadmapActivePath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+      roadmapActivePath.style.strokeDashoffset = `${pathLength}`;
+
+      const updateRoadmapProgress = () => {
+        const rect = skillsSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        const startTrigger = windowHeight * 0.75;
+        const scrollDistance = startTrigger - rect.top;
+        const totalDistance = rect.height + windowHeight * 0.2;
+        
+        const progress = Math.min(Math.max(scrollDistance / totalDistance, 0), 1);
+        roadmapActivePath.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+      };
+
+      window.addEventListener('scroll', updateRoadmapProgress, { passive: true });
+      window.addEventListener('resize', updateRoadmapProgress);
+      updateRoadmapProgress();
+    } catch (err) {
+      console.warn('Roadmap path calculation bypassed:', err);
+    }
+  }
+
+
   // Observe section elements
   const observeElements = [
     '.about-image-wrapper', '.summary-text', '.flip-card',
